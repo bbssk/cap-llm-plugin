@@ -47,7 +47,7 @@
       "gen-ai-hub": {
         "gpt-4": {
           "destinationName": "GenAIHubDestination",
-          "deploymentUrl": "/v2/inference/deployments/{deploymentID  like d15b199f47cf6e11}",
+          "deploymentUrl": "/v2/inference/deployments/d1e22a7fd116d70c",
           "resourceGroup": "default",
           "apiVersion": "2024-02-15-preview",
           "modelName": "gpt-4"
