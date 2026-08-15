@@ -14,6 +14,20 @@
         "vcap": {
           "name": "db"
         }
+      },
+      "destinations": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "b67d60a9trial",
+          "space": "test",
+          "instance": "capllm-destination",
+          "key": "capllm-destination-key"
+        },
+        "kind": "destinations",
+        "vcap": {
+          "name": "destinations"
+        }
       }
     }
   }
