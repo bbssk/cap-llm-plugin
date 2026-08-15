@@ -20,3 +20,8 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at <https://cap.cloud.sap>.
+
+
+https://github.com/SAP-archive/cap-llm-plugin-samples/blob/main/samples/rag-quickstart-app/package.json
+
+https://github.com/SAP-archive/cap-ai-vector-engine-sample/tree/main/application
