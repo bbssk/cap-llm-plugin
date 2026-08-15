@@ -24,7 +24,7 @@ entity Message {
     creation_time: Timestamp;
 }
 
-entity DocumentChunk
+entity DocumentChunk:cuid, managed
 {
     text_chunk: LargeString;
     metadata_column: LargeString;
