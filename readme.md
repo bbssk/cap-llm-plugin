@@ -25,3 +25,9 @@ Learn more at <https://cap.cloud.sap>.
 https://github.com/SAP-archive/cap-llm-plugin-samples/blob/main/samples/rag-quickstart-app/package.json
 
 https://github.com/SAP-archive/cap-ai-vector-engine-sample/tree/main/application
+
+cf create-service hana hdi-shared capllm-db
+cf create-service-key capllm-db capllm-db-key
+cds bind -2 capllm-db:capllm-db-key
+cds build --production
+cds deploy -2 hana:capllm-db
