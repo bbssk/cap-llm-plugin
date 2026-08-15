@@ -34,3 +34,4 @@ cds deploy -2 hana:capllm-db
 
 cf create-service destination lite capllm-destination
 cf create-service-key capllm-destination capllm-destination-key
+destination created aicore-destination.json
