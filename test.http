@@ -44,3 +44,38 @@ Authorization: Basic {{authUser}} {{authPassword}}
 {
     "uuid":"7a6b186b-57fd-4baa-9098-4906b4800275"
 }
+
+###
+POST {{protocol}}://{{host}}:{{port}}/odata/v4/chat/Conversation
+Content-Type: application/json
+Authorization: Basic {{authUser}} {{authPassword}}
+
+{
+  "cID": "7a6b186b-57fd-4baa-9098-4906b4800275",
+  "userID": "dummy.user@com",
+  "creation_time": "2017-04-13T15:51:04.0000000Z",
+  "last_update_time": "2017-04-13T15:51:04.0000000Z",
+  "title": "Bhargav Chat",
+  "to_messages": [
+    {
+      "cID_cID": "7a6b186b-57fd-4baa-9098-4906b4800275",
+      "mID": "7a6b186b-57fd-4baa-9098-4906b4800275",
+      "role": "user",
+      "content": "sample message",
+      "creation_time": "2017-04-13T15:51:04.0000000Z"
+    }
+  ]
+}
+
+###
+POST {{protocol}}://{{host}}:{{port}}/odata/v4/chat/getChatRagResponse
+Content-Type: application/json
+Authorization: Basic {{authUser}} {{authPassword}}
+
+{
+  "conversationId": "7a6b186b-57fd-4baa-9098-4906b4800275",
+  "messageId": "c74eb40e-c1d5-483a-bcd1-4e2cca2dae7a",
+  "message_time": "2017-04-13T15:51:04.0000000Z",
+  "user_id": "dummy.user@com",
+  "user_query": "how many players can play monopoly"
+}
