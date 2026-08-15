@@ -79,3 +79,16 @@ Authorization: Basic {{authUser}} {{authPassword}}
   "user_id": "dummy.user@com",
   "user_query": "how many players can play monopoly"
 }
+
+###
+POST {{protocol}}://{{host}}:{{port}}/odata/v4/chat/getChatRagResponse
+Content-Type: application/json
+Authorization: Basic {{authUser}} {{authPassword}}
+
+{
+  "conversationId": "7a6b186b-57fd-4baa-9098-4906b4800275",
+  "messageId": "5449cd4d-d54b-48b6-86c3-80cfebc07710",
+  "message_time": "2017-04-13T15:51:04.0000000Z",
+  "user_id": "dummy.user@com",
+  "user_query": "hopw much money a player can have in monopoly"
+}
