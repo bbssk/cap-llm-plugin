@@ -4,7 +4,7 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap-ai-sdk/orchestration": "*",
-    "@sap-cloud-sdk/http-client": "^3.12.0",
+    "@sap-cloud-sdk/http-client": "^4",
     "@sap/cds": "^9",
     "@sap/cds-compiler": "^4.6.2",
     "@sap/xssec": "^4",

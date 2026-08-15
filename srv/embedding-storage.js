@@ -49,7 +49,6 @@ module.exports = function () {
     try {
 
       const { uuid } = req.data;
-      const db = await cds.connect.to('db');
       const { Files, DocumentChunk } = this.entities;
       const capllmplugin = await cds.connect.to("cap-llm-plugin");
       let textChunkEntries = [];
@@ -62,9 +61,8 @@ module.exports = function () {
       }
 
       // Load pdf from HANA and create a temp pdf doc
-      //const stream = await db.stream(SELECT('content').from(Files, uuid));
-      // const stream = await db.run(SELECT('content').from(Files).where({ ID: uuid }));
-      const stream = await db.stream(SELECT('content').from(Files).where({ ID: uuid }));
+      const fileRecord = await SELECT.one.from(Files).columns('content').where({ ID: uuid });
+      const stream = fileRecord.content;
       const fileName = await (SELECT('fileName').from(Files).where({ ID: uuid }));
       const fileNameString = fileName[0].fileName;
       const tempDocLocation = __dirname + `/${fileName[0].fileName}`;
@@ -139,7 +137,7 @@ module.exports = function () {
         }
         const entry = {
           "text_chunk": chunk.pageContent,
-          "metadata_column": fileName,
+          "metadata_column": fileNameString,
           "embedding": array2VectorBuffer(embedding)
         };
         textChunkEntries.push(entry);

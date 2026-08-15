@@ -32,22 +32,15 @@ Content-Type: application/octet-stream
 Authorization: Basic {{authUser}} {{authPassword}}
 
 ###
-GET {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content
+GET {{protocol}}://{{host}}:{{port}}/odata/v4/embedding-storage/Files(7a6b186b-57fd-4baa-9098-4906b4800275)/content
 Content-Disposition: 'attachment; filename="myPDF.pdf"'
 Authorization: Basic {{authUser}} {{authPassword}}
 
 ###
-PUT {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content HTTP/1.1
-Content-Type: image/png
-slug: destination.png
+POST {{protocol}}://{{host}}:{{port}}/odata/v4/embedding-storage/storeEmbeddings
+Content-Type: application/json
 Authorization: Basic {{authUser}} {{authPassword}}
 
-
-
-< ./destination.png
-
-
-###
-GET {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content
-Content-Disposition: 'attachment; filename="destination.png"'
-Authorization: Basic {{authUser}} {{authPassword}}
+{
+    "uuid":"7a6b186b-57fd-4baa-9098-4906b4800275"
+}
