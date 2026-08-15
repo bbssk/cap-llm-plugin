@@ -1,0 +1,45 @@
+@host=localhost
+@port=4004
+@protocol=http
+
+
+###
+POST {{protocol}}://{{host}}:{{port}}/odata/v4/embedding-storage/Files HTTP/1.1
+Content-Type: application/json
+
+{
+ "ID":"7a6b186b-57fd-4baa-9098-4906b4800275",
+ "mediaType":"appication/json",
+ "filename":"monopoly.pdf",
+ "size":1049
+}
+
+###
+PUT {{protocol}}://{{host}}:{{port}}/odata/v4/embedding-storage/Files(7a6b186b-57fd-4baa-9098-4906b4800275)/content HTTP/1.1
+Content-Type: application/pdf
+
+
+
+< ./monopoly.pdf
+
+###
+GET {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content
+Content-Type: application/octet-stream
+
+###
+GET {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content
+Content-Disposition: 'attachment; filename="myPDF.pdf"'
+
+###
+PUT {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content HTTP/1.1
+Content-Type: image/png
+slug: destination.png
+
+
+
+< ./destination.png
+
+
+###
+GET {{protocol}}://{{host}}:{{port}}/odata/v4/media/MediaFile(7a6b186b-57fd-4baa-9098-4906b4800275)/content
+Content-Disposition: 'attachment; filename="destination.png"'
